@@ -14,11 +14,13 @@ class Upload(APIView):
         'detail': '脚本已经 上传完毕！',
     }, status=status.HTTP_200_OK)
     def post(self,request):
+
         deployName=request.data.get("deployName")
+
         if deployName:
             myFile = request.FILES.get("file", None)
             if myFile:
-                dir = settings.scriptPackage+"/"+deployName
+                dir = settings.scriptPackage+deployName+"/conf.d"
                 destination = open(os.path.join(dir, myFile.name),
                                    'wb+')
                 for chunk in myFile.chunks():
