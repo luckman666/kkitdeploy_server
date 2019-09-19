@@ -21,6 +21,7 @@ class Upload(APIView):
             myFile = request.FILES.get("file", None)
             if myFile:
                 dir = settings.scriptPackage+deployName+"/conf.d"
+                handleCommand.checkPath(dir)
                 destination = open(os.path.join(dir, myFile.name),
                                    'wb+')
                 for chunk in myFile.chunks():
@@ -59,7 +60,6 @@ class changeBaseConfig(APIView):
                 return "配置文件修改成功"
             except Exception as e:
                 return e
-
 
 class UnRarUploadFile(APIView):
 

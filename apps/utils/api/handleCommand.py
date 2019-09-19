@@ -7,7 +7,7 @@ from string import Template
 from channels.generic.websocket import WebsocketConsumer
 from kkitDeploy.settings import RSA_PRIVATE_KEY_FILE
 __all__ = [
-'wsScheduleJob','fetchMasterIp','checkYml','UnRar'
+'wsScheduleJob','fetchMasterIp','checkYml','UnRar','checkPath','readBaseConfig'
 ]
 
 redisInstace = redis.Redis(connection_pool=redisPool)
@@ -44,8 +44,8 @@ class wsScheduleJob(WebsocketConsumer):
         number=0
         proc = subprocess.Popen(cmd, shell=True, universal_newlines=True, stderr=subprocess.STDOUT,stdout=subprocess.PIPE,cwd=cwd)
         try:
-            for message in iter(proc.stdout.readline, 'b'):
-
+            for message in iter(proc.stdout.readline, 'rb'):
+                # print('message',message)
                 if message == '' and proc.poll() != None:
                     time.sleep(1)
 
@@ -100,13 +100,13 @@ def fetchMasterIp(fileName):
 
 def checkYml(fileName):
 
-    ymlTemplate = Template('${s1}/${s2}/${s3}.yml')
+    ymlTemplate = Template('${s1}${s2}/${s3}.yml')
     ymlFile = ymlTemplate.safe_substitute(s1=scriptPackage, s2=fileName,s3=fileName)
     status = os.path.isfile(ymlFile)
     return status
 
 def readYml(fileName):
-    ymlTemplate = Template('${s1}/${s2}/${s3}.yml')
+    ymlTemplate = Template('${s1}${s2}/${s3}.yml')
     ymlFile = ymlTemplate.safe_substitute(s1=scriptPackage, s2=fileName,s3=fileName)
     yml = open(ymlFile,"r")
     ymlInfo = yml.read()
@@ -126,7 +126,7 @@ def UnRar(fileName):
         return False,e
 
 def readBaseConfig(fileName):
-    baseTemplate = Template('${s1}/${s2}/${s3}')
+    baseTemplate = Template('${s1}${s2}/${s3}')
     baseFile = baseTemplate.safe_substitute(s1=scriptPackage, s2=fileName,s3='base.config')
     try:
         base = open(baseFile,"r")
@@ -135,3 +135,12 @@ def readBaseConfig(fileName):
         return True, "脚本已经上传完毕并成功初始化了数据！"
     except Exception as e:
         return False, e
+
+def checkPath(dirPath):
+
+    status = os.path.isdir(dirPath)
+    if status:
+        pass
+    else:
+        os.system('mkdir -p '+ dirPath)
+

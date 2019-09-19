@@ -196,6 +196,7 @@ updateScriptPackage=os.path.join(scriptPackage,'updateScript.sh')
 RSA_PRIVATE_KEY_FILE='/root/.ssh/id_rsa'
 # gitBaseUrl='https://api.github.com/users/luckman666/repos'
 gitBaseUrl='https://gitee.com/yb2018/kkitDeployScriptPackage.git'
+checkPortPath = os.path.join(scriptBasePath,'portScanner/')
 
 # CRONJOBS = [
 #     ('30 6 * * 1', updateScriptPackage)

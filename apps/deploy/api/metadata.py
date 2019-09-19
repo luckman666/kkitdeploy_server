@@ -10,8 +10,25 @@ import json,redis,os
 redisInstace = redis.Redis(connection_pool=redisPool)
 
 __all__ = [
-'deployCreateAPI','AllTypeAPI','metadataConfigAPI','metadataConfigUpdateAPI'
+'deployCreateAPI','AllTypeAPI','metadataConfigAPI','metadataConfigUpdateAPI','Update'
 ]
+
+
+
+class Update():
+
+    def __init__(self):
+        try:
+            updataResuslt=redisInstace.get("update")
+            if updataResuslt:
+                pass
+            else:
+                handleUpdate.getItemPack.getItem()
+        except Exception as e:
+            print(e)
+
+
+
 
 class deployCreateAPI(APIView):
 
@@ -37,12 +54,14 @@ class AllTypeAPI(APIView,getItemPack):
         }, status=status.HTTP_200_OK)
         return response
 
-class metadataConfigAPI(APIView):
+class metadataConfigAPI(APIView,Update):
     def post(self, request):
         deployName=request.data.get('deployName')
 
         try:
+
             deployObjectConfig = redisInstace.get(deployName)
+
             response = Response({
                 deployObjectConfig
             }, status=status.HTTP_200_OK)
@@ -51,14 +70,13 @@ class metadataConfigAPI(APIView):
 
         return response
 
-class metadataConfigUpdateAPI(APIView):
+class metadataConfigUpdateAPI(APIView,Update):
 
     def post(self, request):
         deployName = request.data.get('deployName')
         configFile = request.data.get('configFile')
         redisInstace.set(deployName, configFile)
         deployConfig = deployName + '/base.config'
-
         try:
             writeConfig = changeBaseConfig(configFile, scriptPackage, deployConfig)
             writeConfigRutl = writeConfig.changeConfig()
@@ -82,7 +100,7 @@ class metadataConfigUpdateAPI(APIView):
             writeConfigInfo['writeConfigRutl'] = e
             return Response(writeConfigInfo, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class metadataYmlConfigUpdateAPI(APIView):
+class metadataYmlConfigUpdateAPI(APIView,Update):
 
     def post(self, request):
         deployName = request.data.get('deployName')
@@ -103,11 +121,3 @@ class metadataYmlConfigUpdateAPI(APIView):
             writeConfigInfo = {}
             writeConfigInfo['writeConfigRutl'] = e
             return Response(writeConfigInfo, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-def fetchScript():
-    updataResuslt=redisInstace.get("update")
-    if updataResuslt:
-        pass
-    else:
-        resuslt=handleUpdate.getItemPack.getItem()
-        return resuslt
