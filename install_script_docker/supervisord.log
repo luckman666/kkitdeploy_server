@@ -1,0 +1,10 @@
+2019-09-24 20:54:55,333 CRIT Supervisor running as root (no user in config file)
+2019-09-24 20:54:55,357 INFO supervisord started with pid 20079
+2019-09-24 20:54:56,375 INFO spawned: 'nginx' with pid 20084
+2019-09-24 20:54:56,379 INFO spawned: 'kkitDeploy' with pid 20085
+2019-09-24 20:54:57,382 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-09-24 20:55:16,481 INFO success: kkitDeploy entered RUNNING state, process has stayed up for > than 20 seconds (startsecs)
+2019-09-24 20:55:17,550 WARN received SIGINT indicating exit request
+2019-09-24 20:55:17,564 INFO waiting for nginx, kkitDeploy to die
+2019-09-24 20:55:17,571 INFO stopped: kkitDeploy (terminated by SIGQUIT)
+2019-09-24 20:55:17,587 INFO stopped: nginx (exit status 0)
