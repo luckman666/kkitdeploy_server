@@ -4,6 +4,17 @@
 
 kkitDeploy是波哥抽离了kkit3.0的一个功能模块开源给大家。
 
+
+vue前端项目地址：
+https://github.com/luckman666/kkitdeploy_dashboard
+
+shellscript项目地址：
+https://github.com/luckman666/kkitdeploy_script
+
+python项目地址：
+https://github.com/luckman666/kkitdeploy_server
+
+
 该项目没借助传统的ansible、Saltstack或者clustershell来二次开发。ansible是kkit3.0和远程动作核心驱动，Saltstack在kkit1.0的核心驱动（kkit1.0已经被我开源至github）.
 
 通过集成了上述两个工具后发现了不少缺点，所以在设计kkitDeploy的时候就自己写了个驱动来完成所有的动作。
