@@ -187,6 +187,7 @@ CHANNEL_LAYERS = {
 ASGI_APPLICATION = "kkitDeploy.routing.application"
 
 STATIC_URL = '/static/'
+
 FileUploadDir = os.path.join(BASE_DIR,'uploadPath/')
 scriptBasePath = os.path.join(BASE_DIR,'apps/utils/api/')
 sendScriptBasePath = os.path.join(scriptBasePath,'execute_deploy/')
