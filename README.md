@@ -103,8 +103,8 @@ PS：请自定义的插件名称不要使用原名称，例如nginx，redis。�
 那么如何部署我们的kkitdeploy呢？
 
 ```
-git clone https://github.com/luckman666/kkitdeploy_server.git
-cd kkitdeploy_server/install_script_docker && chmod 755 -R .
+git clone https://github.com/luckman666/kkitdeploy_install.git
+cd kkitdeploy_install && chmod 755 -R .
 # 修改base.config里面的参数
 ./kkitdeploy.sh
 ```
