@@ -4,6 +4,8 @@
 
 kkitDeploy是波哥抽离了kkit3.0的一个功能模块开源给大家。
 
+kkitDeploy部署地址：
+https://github.com/luckman666/kkitdeploy_install
 
 vue前端项目地址：
 https://github.com/luckman666/kkitdeploy_dashboard
