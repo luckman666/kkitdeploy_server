@@ -10,8 +10,6 @@ https://github.com/luckman666/kkitdeploy_install
 vue前端项目地址：
 https://github.com/luckman666/kkitdeploy_dashboard
 
-shellscript项目地址：
-https://github.com/luckman666/kkitdeploy_script
 
 python项目地址：
 https://github.com/luckman666/kkitdeploy_server
