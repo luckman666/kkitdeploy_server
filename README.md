@@ -105,7 +105,7 @@ PS：请自定义的插件名称不要使用原名称，例如nginx，redis。�
 ```
 git clone https://github.com/luckman666/kkitdeploy_install.git
 cd kkitdeploy_install && chmod 755 -R .
-# 修改base.config里面的参数
+# 修改base.config里面的参数如果是公网访问，需要填写公网IP地址
 ./kkitdeploy.sh
 ```
 
