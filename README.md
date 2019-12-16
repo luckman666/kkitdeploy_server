@@ -4,7 +4,7 @@
 
 kkitDeploy是波哥抽离了kkit3.0的一个功能模块开源给大家。
 
-#kkitDeploy2.0 (paas版）隆重推出访问地址：http://deploy.itboge.com/
+# kkitDeploy2.0 (paas版）隆重推出访问地址：http://deploy.itboge.com/
 
 kkitDeploy部署地址：
 https://github.com/luckman666/kkitdeploy_install
