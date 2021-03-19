@@ -15,7 +15,7 @@ daphne==2.3.0
 Django==2.2.3
 django-cors-headers==3.0.2
 django-redis==4.10.0
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 dwebsocket==0.5.10
 hiredis==1.0.0
