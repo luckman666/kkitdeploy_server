@@ -23,7 +23,7 @@ hyperlink==19.0.0
 idna==2.8
 incremental==17.5.0
 msgpack==0.6.1
-paramiko==2.6.0
+paramiko==2.10.1
 pycparser==2.19
 PyHamcrest==1.9.0
 PyJWT==1.7.1
